@@ -1,12 +1,12 @@
 package com.board.menus.domain;
 
 public class MenuDTO {
-	//Field
+	// Field
 	private String menu_id;
 	private String menu_name;
 	private int    menu_seq;
 	
-	//Constructor
+	// Constructor
 	public MenuDTO() {}
 	
 	public MenuDTO(String menu_id, String menu_name, int menu_seq) {
