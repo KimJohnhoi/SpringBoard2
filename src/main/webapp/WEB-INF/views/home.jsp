@@ -12,8 +12,8 @@
 	  <h2>Home</h2>
 	  <a href="/test">Test</a>
 	  <hr>
-	  <a href="/Menus/List">메뉴 목록</a><br>
-	  <a href="/Menus/WriteForm">새 메뉴 추가</a><br>
+	  <a href="/Member/List">회원 목록</a><br>
+	  <a href="/Menus/AddForm">회원 추가</a><br>
   </main> 
 </body>
 </html>

@@ -20,39 +20,40 @@
     td {border-color: cyan; color: white}
   }
   
-  td[colspan="5"] {text-align: right; }
-  
-  /*tr:first-child td{
-    border-color: white;
-  }*/  
+  td[colspan="8"] {text-align: right; }
 </style>
 </head>
 <body>
   <main>
-    <h2>메뉴 목록</h2>
+    <h2>회원 목록</h2>
     <table>
       <tr>
-        <td>Menu_id</td>
-        <td>Menu_name</td>
-        <td>Menu_seq</td>
-        <td>삭제</td>
+        <td>회원 아이디</td>
+        <td>패스워드</td>
+        <td>회원 이름</td>
+        <td>E-MAIL</td>
+        <td>포인트</td>
+        <td>가입일</td>
         <td>수정</td>
+        <td>삭제</td>
       </tr>
       <tr>
-        <td colspan="5">
-          <a href="/Menus/WriteForm">새 메뉴 추가</a>
-          <a href="/Menus/WriteForm2"> / 새 메뉴 추가2</a>
+        <td colspan="8">
+          <a href="/Menus/AddForm">회원추가</a>
         </td>
       </tr>
       <!-- Expression language % 대신 사용 -->
       <!--  중요: "${ menuList }"   "" 안에는 공백 넣으면 안됨!!-->
-      <c:forEach var = "menu" items = "${ menuList }">
+      <c:forEach var = "member" items = "${ memList }">
       <tr>
-        <td>${ menu.menu_id }</td> 
-        <td>${ menu.menu_name }</td>
-        <td>${ menu.menu_seq }</td>
-        <td><a href="/Menus/Delete?menu_id=${ menu.menu_id }">삭제</a></td>
-        <td><a href="/Menus/UpdateForm?menu_id=${ menu.menu_id }">수정</a></td>
+        <td>${ member.userid }</td> 
+        <td>${ member.passwd }</td> 
+        <td>${ member.username }</td> 
+        <td>${ member.email }</td> 
+        <td>${ member.upoint }</td> 
+        <td>${ member.indate }</td> 
+        <td><a href="/Menus/UpdateForm?userid=${ member.userid }">수정</a></td>
+        <td><a href="/Menus/Delete?userid=${ member.userid }">삭제</a></td>
       </tr>
       </c:forEach>
     </table>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.board.menus.mapper.MemberMapper">
+  <select id="getMemList"
+          resultType="com.board.menus.domain.MemberDTO">
+    SELECT USERID, PASSWD, USERNAME, EMAIL, UPOINT, INDATE
+    FROM TUSER
+    ORDER BY USERNAME ASC
+  </select>
+  
+  <insert id="insertMem">
+  INSERT INTO TUSER
+  ( USERID,
+    PASSWD,
+    USERNAME,
+    EMAIL,
+    UPOINT,
+    INDATE
+  )
+  VALUES
+  (
+    #{ userid },
+    #{ passwd },
+    #{ username },
+    #{ email },
+    1000,
+    sysdate
+  )
+  </insert>
+  
+  <select id="getMem"
+          resultType="com.board.menus.domain.MemberDTO">
+    SELECT USERID, PASSWD, USERNAME, EMAIL, UPOINT, INDATE
+    FROM TUSER
+    WHERE USERID = #{ userid }
+  </select>
+  
+  <update id="updateMem">
+  UPDATE TUSER
+  SET PASSWD = #{passwd},
+      USERNAME = #{username},
+      EMAIL = #{email}
+  WHERE USERID = #{ userid }
+  </update>
+  
+  <delete id="delMem">
+    DELETE FROM TUSER
+    WHERE USERID = #{ userid }
+  </delete>
+</mapper>  
